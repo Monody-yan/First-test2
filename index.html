@@ -1,55 +1,104 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- Character encoding for proper display of Chinese and special characters -->
     <meta charset="UTF-8">
+    
+    <!-- Responsive viewport settings for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title displayed in browser tab -->
     <title>我的音乐播放器</title>
+    
+    <!-- Link to external stylesheet for all visual styling -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 
+        Main Music Player Container
+        Contains all player UI elements including album art, controls, and playlist
+    -->
     <div class="music-player">
-        <!-- 专辑封面 -->
+        <!-- 
+            Album Cover Section
+            - Displays circular album artwork
+            - Rotates during playback via 'playing' class
+            - Image source is updated dynamically via JavaScript
+        -->
         <div class="album-cover">
             <img src="https://via.placeholder.com/300" alt="专辑封面" id="cover">
         </div>
         
-        <!-- 歌曲信息 -->
+        <!-- 
+            Song Information Section
+            - Displays current song title and artist name
+            - Content is updated dynamically when songs change
+        -->
         <div class="song-info">
             <h2 id="song-title">歌曲名称</h2>
             <p id="artist">歌手名字</p>
         </div>
         
-        <!-- 进度条 -->
+        <!-- 
+            Progress Bar Section
+            - Shows current playback time on left
+            - Interactive progress bar in center (click to seek)
+            - Shows total duration on right
+            - All updated in real-time during playback
+        -->
         <div class="progress-container">
             <span id="current-time">0:00</span>
             <div class="progress-bar">
+                <!-- Inner progress fill element, width changes 0-100% -->
                 <div class="progress" id="progress"></div>
             </div>
             <span id="duration">0:00</span>
         </div>
         
-        <!-- 控制按钮 -->
+        <!-- 
+            Playback Control Buttons
+            - Previous: Go to previous song in playlist
+            - Play/Pause: Toggle playback (text changes dynamically)
+            - Next: Go to next song in playlist
+        -->
         <div class="controls">
             <button id="prev-btn">上一首</button>
             <button id="play-btn">播放</button>
             <button id="next-btn">下一首</button>
         </div>
         
-        <!-- 音量控制 -->
+        <!-- 
+            Volume Control Section
+            - Range slider from 0-100
+            - Default value: 50
+            - Updates audio volume in real-time as slider moves
+        -->
         <div class="volume-container">
             <span>音量:</span>
             <input type="range" id="volume-slider" min="0" max="100" value="50">
         </div>
         
-        <!-- 播放列表 -->
+        <!-- 
+            Playlist Section
+            - Dynamically populated list of all songs
+            - Click any song to play it
+            - Currently playing song is highlighted
+            - Scrollable if playlist exceeds max height
+        -->
         <div class="playlist">
             <h3>播放列表</h3>
             <ul id="song-list">
-                <!-- 歌曲列表将通过 JavaScript 动态添加 -->
+                <!-- Song list items are dynamically added via JavaScript -->
             </ul>
         </div>
     </div>
 
+    <!-- 
+        JavaScript Application File
+        - Contains all music player functionality
+        - Handles playback, navigation, and UI updates
+        - See script.js for detailed documentation
+    -->
     <script src="script.js"></script>
 </body>
 </html>
