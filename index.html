@@ -3,49 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的音乐播放器</title>
+    <title>贪吃蛇游戏</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="music-player">
-        <!-- 专辑封面 -->
-        <div class="album-cover">
-            <img src="https://via.placeholder.com/300" alt="专辑封面" id="cover">
-        </div>
+    <div class="game-container">
+        <h1 class="game-title">🐍 贪吃蛇游戏</h1>
         
-        <!-- 歌曲信息 -->
-        <div class="song-info">
-            <h2 id="song-title">歌曲名称</h2>
-            <p id="artist">歌手名字</p>
-        </div>
-        
-        <!-- 进度条 -->
-        <div class="progress-container">
-            <span id="current-time">0:00</span>
-            <div class="progress-bar">
-                <div class="progress" id="progress"></div>
+        <div class="info-panel">
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="label">分数:</span>
+                    <span id="score" class="value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">最高分:</span>
+                    <span id="high-score" class="value">0</span>
+                </div>
             </div>
-            <span id="duration">0:00</span>
+            
+            <div class="controls">
+                <button id="start-btn" class="btn btn-primary">开始游戏</button>
+                <button id="pause-btn" class="btn btn-secondary" disabled>暂停</button>
+            </div>
         </div>
         
-        <!-- 控制按钮 -->
-        <div class="controls">
-            <button id="prev-btn">上一首</button>
-            <button id="play-btn">播放</button>
-            <button id="next-btn">下一首</button>
+        <div class="canvas-wrapper">
+            <canvas id="game-canvas"></canvas>
+            <div id="game-over" class="game-over hidden">
+                <h2>游戏结束!</h2>
+                <p>得分: <span id="final-score">0</span></p>
+                <button id="restart-btn" class="btn btn-primary">重新开始</button>
+            </div>
         </div>
         
-        <!-- 音量控制 -->
-        <div class="volume-container">
-            <span>音量:</span>
-            <input type="range" id="volume-slider" min="0" max="100" value="50">
-        </div>
-        
-        <!-- 播放列表 -->
-        <div class="playlist">
-            <h3>播放列表</h3>
-            <ul id="song-list">
-                <!-- 歌曲列表将通过 JavaScript 动态添加 -->
+        <div class="instructions">
+            <h3>游戏说明:</h3>
+            <ul>
+                <li>使用方向键 ⬆️ ⬇️ ⬅️ ➡️ 控制蛇的移动</li>
+                <li>吃到食物 🍎 可以增加分数和长度</li>
+                <li>撞到墙壁或自己身体游戏结束</li>
+                <li>按空格键可以暂停/继续游戏</li>
             </ul>
         </div>
     </div>
